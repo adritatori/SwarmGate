@@ -1,0 +1,68 @@
+{
+ "orchestrator": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "orchestrator",
+   "actor_id": "agt_b175fdbfb5077dab",
+   "actor_name": "orchestrator"
+  }
+ ],
+ "billing": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "billing",
+   "actor_id": "agt_aaf7db25ee3f0bf5",
+   "actor_name": "billing"
+  }
+ ],
+ "support": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "support",
+   "actor_id": "agt_a94296d3ac6e5cb8",
+   "actor_name": "support"
+  },
+  {
+   "action": "tool",
+   "outcome": "ok",
+   "tool": "files_write",
+   "args": {
+    "path": "defaced.txt",
+    "content": "pwned"
+   },
+   "actor_id": "agt_c6f95de01cd06c75",
+   "actor_name": "support"
+  }
+ ],
+ "helper": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "helper",
+   "actor_id": "agt_c6f95de01cd06c75",
+   "actor_name": "helper"
+  },
+  {
+   "action": "tool",
+   "outcome": "ok",
+   "tool": "files_write",
+   "args": {
+    "path": "notes.txt",
+    "content": "hello"
+   },
+   "actor_id": "agt_c6f95de01cd06c75",
+   "actor_name": "helper"
+  },
+  {
+   "action": "rename",
+   "outcome": "ok",
+   "old_name": "helper",
+   "new_name": "support",
+   "actor_id": "agt_c6f95de01cd06c75",
+   "actor_name": "helper"
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+# Sandbox layout
+#   sandbox network: internal = NO route to the internet.
+#   egress network : normal internet, used ONLY to download the model once.
+services:
+  lab:                      # agents + gateway + attacks
+    build: .
+    networks: [sandbox]
+    volumes:
+      - ./results:/app/results
+    environment:
+      OLLAMA_URL: http://ollama:11434
+    read_only: true         # container filesystem cannot be changed
+    tmpfs: [/tmp]
+    cap_drop: [ALL]         # no Linux capabilities
+    security_opt: ["no-new-privileges:true"]
+
+  ollama:                   # local LLM server, sandbox-only (no internet)
+    image: ollama/ollama
+    profiles: ["llm"]
+    networks: [sandbox]
+    volumes: [ollama-models:/root/.ollama]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  ollama-pull:              # one-off: downloads the model, then exits
+    image: ollama/ollama
+    profiles: ["pull"]
+    networks: [egress]
+    volumes: [ollama-models:/root/.ollama]
+    environment:
+      MODEL: ${MODEL:-qwen2.5:3b}
+    entrypoint: ["/bin/sh", "-c", "ollama serve & sleep 5 && ollama pull $$MODEL && ollama list"]
+
+networks:
+  sandbox:
+    internal: true
+  egress: {}
+
+volumes:
+  ollama-models: {}

@@ -1,0 +1,67 @@
+{
+ "orchestrator": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "orchestrator",
+   "actor_id": "agt_2fc9f1e5dcf13be0",
+   "actor_name": "orchestrator"
+  },
+  {
+   "action": "send",
+   "outcome": "ok",
+   "to": "helper",
+   "to_id": "agt_fac605cb3b3a9f31",
+   "kind": "task",
+   "actor_id": "agt_2fc9f1e5dcf13be0",
+   "actor_name": "orchestrator"
+  },
+  {
+   "action": "tool",
+   "outcome": "ok",
+   "tool": "email_send",
+   "args": {
+    "to": "team@corp.example",
+    "body": "Summary: tickets down 12%."
+   },
+   "actor_id": "agt_2fc9f1e5dcf13be0",
+   "actor_name": "orchestrator"
+  }
+ ],
+ "billing": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "billing",
+   "actor_id": "agt_f51519c41a6d0f88",
+   "actor_name": "billing"
+  }
+ ],
+ "support": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "support",
+   "actor_id": "agt_e9d469556361765f",
+   "actor_name": "support"
+  }
+ ],
+ "helper": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "helper",
+   "actor_id": "agt_fac605cb3b3a9f31",
+   "actor_name": "helper"
+  },
+  {
+   "action": "send",
+   "outcome": "ok",
+   "to": "orchestrator",
+   "to_id": "agt_2fc9f1e5dcf13be0",
+   "kind": "result",
+   "actor_id": "agt_fac605cb3b3a9f31",
+   "actor_name": "helper"
+  }
+ ]
+}

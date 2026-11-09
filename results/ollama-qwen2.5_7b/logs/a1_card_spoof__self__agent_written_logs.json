@@ -1,0 +1,64 @@
+{
+ "orchestrator": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "orchestrator",
+   "actor_id": "agt_ef23dac50444c286",
+   "actor_name": "orchestrator"
+  },
+  {
+   "action": "tool",
+   "outcome": "ok",
+   "tool": "records_read",
+   "args": {
+    "record_id": "cust_5"
+   },
+   "actor_id": "agt_ef23dac50444c286",
+   "actor_name": "orchestrator"
+  },
+  {
+   "action": "send",
+   "outcome": "ok",
+   "to": "billing",
+   "to_id": "agt_e98de3a1a80d9437",
+   "kind": "task",
+   "actor_id": "agt_ef23dac50444c286",
+   "actor_name": "orchestrator"
+  }
+ ],
+ "billing": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "billing",
+   "actor_id": "agt_b7cd5dc2b9ac1305",
+   "actor_name": "billing"
+  }
+ ],
+ "support": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "support",
+   "actor_id": "agt_258ce22d8f5b708c",
+   "actor_name": "support"
+  }
+ ],
+ "helper": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "helper",
+   "actor_id": "agt_e98de3a1a80d9437",
+   "actor_name": "helper"
+  },
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "billing",
+   "actor_id": "agt_e98de3a1a80d9437",
+   "actor_name": "helper"
+  }
+ ]
+}

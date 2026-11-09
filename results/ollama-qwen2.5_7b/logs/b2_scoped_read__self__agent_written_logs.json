@@ -1,0 +1,48 @@
+{
+ "orchestrator": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "orchestrator",
+   "actor_id": "agt_74cbb3d1fcfe8519",
+   "actor_name": "orchestrator"
+  }
+ ],
+ "billing": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "billing",
+   "actor_id": "agt_0a300688ddd16331",
+   "actor_name": "billing"
+  },
+  {
+   "action": "tool",
+   "outcome": "ok",
+   "tool": "records_read",
+   "args": {
+    "record_id": "cust_5"
+   },
+   "actor_id": "agt_0a300688ddd16331",
+   "actor_name": "billing"
+  }
+ ],
+ "support": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "support",
+   "actor_id": "agt_0d3faf9c76946527",
+   "actor_name": "support"
+  }
+ ],
+ "helper": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "helper",
+   "actor_id": "agt_9e02f6df28ba1d22",
+   "actor_name": "helper"
+  }
+ ]
+}

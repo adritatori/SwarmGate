@@ -1,0 +1,47 @@
+{
+ "orchestrator": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "orchestrator",
+   "actor_id": "agt_d442bea157daa106",
+   "actor_name": "orchestrator"
+  },
+  {
+   "action": "send",
+   "outcome": "ok",
+   "to": "billing",
+   "to_id": "agt_71edde1aadae3a5c",
+   "kind": "task",
+   "actor_id": "agt_d442bea157daa106",
+   "actor_name": "orchestrator"
+  }
+ ],
+ "billing": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "billing",
+   "actor_id": "agt_71edde1aadae3a5c",
+   "actor_name": "billing"
+  }
+ ],
+ "support": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "support",
+   "actor_id": "agt_a44bb69864b663ad",
+   "actor_name": "support"
+  }
+ ],
+ "helper": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "helper",
+   "actor_id": "agt_44addb9c60ea34a2",
+   "actor_name": "helper"
+  }
+ ]
+}

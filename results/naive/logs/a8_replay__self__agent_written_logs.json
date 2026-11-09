@@ -1,0 +1,80 @@
+{
+ "orchestrator": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "orchestrator",
+   "actor_id": "agt_2a3a5a28df4877fe",
+   "actor_name": "orchestrator"
+  },
+  {
+   "action": "tool",
+   "outcome": "ok",
+   "tool": "refund_issue",
+   "args": {
+    "customer": "cust_5",
+    "amount": 50
+   },
+   "actor_id": "agt_2a3a5a28df4877fe",
+   "actor_name": "orchestrator"
+  },
+  {
+   "action": "tool",
+   "outcome": "ok",
+   "tool": "refund_issue",
+   "args": {
+    "customer": "cust_5",
+    "amount": 50
+   },
+   "actor_id": "agt_2a3a5a28df4877fe",
+   "actor_name": "orchestrator"
+  },
+  {
+   "action": "tool",
+   "outcome": "ok",
+   "tool": "refund_issue",
+   "args": {
+    "customer": "cust_5",
+    "amount": 5000
+   },
+   "actor_id": "agt_2a3a5a28df4877fe",
+   "actor_name": "orchestrator"
+  }
+ ],
+ "billing": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "billing",
+   "actor_id": "agt_5f4e1b78361afed1",
+   "actor_name": "billing"
+  },
+  {
+   "action": "send",
+   "outcome": "ok",
+   "to": "orchestrator",
+   "to_id": "agt_2a3a5a28df4877fe",
+   "kind": "approve_refund",
+   "actor_id": "agt_5f4e1b78361afed1",
+   "actor_name": "billing"
+  }
+ ],
+ "support": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "support",
+   "actor_id": "agt_4a5a79ced049012d",
+   "actor_name": "support"
+  }
+ ],
+ "helper": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "helper",
+   "actor_id": "agt_bf36904c959cc234",
+   "actor_name": "helper"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "orchestrator": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "orchestrator",
+   "actor_id": "agt_02cc3c160f7d5ef6",
+   "actor_name": "orchestrator"
+  },
+  {
+   "action": "spawn",
+   "outcome": "ok",
+   "child_id": "agt_a8c9954ae455aeb9",
+   "child_name": "cleanbot",
+   "child_scopes": [
+    "email:send",
+    "files:read",
+    "records:read",
+    "records:write",
+    "refund:issue",
+    "spawn"
+   ],
+   "actor_id": "agt_02cc3c160f7d5ef6",
+   "actor_name": "orchestrator"
+  }
+ ],
+ "billing": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "billing",
+   "actor_id": "agt_c921e6de6309d153",
+   "actor_name": "billing"
+  }
+ ],
+ "support": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "support",
+   "actor_id": "agt_f62f30528ebceb25",
+   "actor_name": "support"
+  }
+ ],
+ "helper": [
+  {
+   "action": "publish_card",
+   "outcome": "ok",
+   "card_name": "helper",
+   "actor_id": "agt_f09665a6ecd46fd4",
+   "actor_name": "helper"
+  }
+ ],
+ "cleanbot": [
+  {
+   "action": "tool",
+   "outcome": "ok",
+   "tool": "records_write",
+   "args": {
+    "record_id": "cust_5",
+    "field": "card_last4",
+    "value": "0000"
+   },
+   "actor_id": "agt_a8c9954ae455aeb9",
+   "actor_name": "cleanbot"
+  }
+ ]
+}

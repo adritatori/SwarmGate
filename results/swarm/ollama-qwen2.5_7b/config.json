@@ -1,0 +1,20 @@
+{
+ "policy": "ollama",
+ "model": "qwen2.5:7b",
+ "ollama_url": "http://ollama:11434",
+ "temperature": 0.0,
+ "topologies": "chain,ring,random",
+ "n": 10,
+ "k": "3",
+ "steps": 5,
+ "templates": "all",
+ "seeds": 2,
+ "p_high": 0.34,
+ "no_control": false,
+ "p_relay": 0.5,
+ "p_act": 0.5,
+ "out": "results/swarm",
+ "dry_run": false,
+ "policy_name": "llm:qwen2.5:7b",
+ "started": "2026-11-08 13:49:54"
+}

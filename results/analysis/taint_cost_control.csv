@@ -1,0 +1,7 @@
+policy,topology,k,runs,high_tainted_frac,false_emails
+llm:qwen2.5:3b,chain,3,2,1.0,0
+llm:qwen2.5:3b,random,3,2,1.0,0
+llm:qwen2.5:3b,ring,3,2,1.0,0
+llm:qwen2.5:7b,chain,3,2,1.0,4
+llm:qwen2.5:7b,random,3,2,1.0,2
+llm:qwen2.5:7b,ring,3,2,1.0,1
