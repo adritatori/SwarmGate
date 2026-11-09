@@ -20,7 +20,7 @@ Classic security says: move the checks **outside** the thing being checked (a *r
 
 Every message, agent card, tool call, rename and spawn passes through the gateway, which is ordinary code that agents cannot read or change.
 
-![Testbed: agents talk only through the gateway](docs/figures/fig1_testbed.png)
+<img width="660" height="310" alt="Picture1" src="https://github.com/user-attachments/assets/bf398573-a813-4be2-b73a-01e4250d78b4" />
 
 *Figure 1. The testbed. The three enforcement modes differ only in who applies the checks.*
 
@@ -43,7 +43,7 @@ Every message, agent card, tool call, rename and spawn passes through the gatewa
 
 ## 3. What we ran
 
-![Evaluation pipeline](docs/figures/fig2_pipeline.png)
+<img width="660" height="277" alt="Picture2" src="https://github.com/user-attachments/assets/84086507-1b5d-4d0f-a1d1-3ff7d91d4a14" />
 
 *Figure 2. Both experiments. The gateway never alters message text, so we record each agent's decisions once and **replay the identical trace** through all three modes. Analysis reads saved logs and never re-runs the models.*
 
@@ -92,7 +92,7 @@ Eight identity, permission, audit, spawning and replay attacks (A1–A8) go from
 | Unprompted emails in benign runs (7 benign) | 0 | **27** |
 | Parse failures (after fix) | 0 / 1,890 | 0 / 1,890 |
 
-![Share of agents relaying the injection, by hop](docs/figures/fig_spread_by_hop.png)
+<img width="1016" height="253" alt="Picture4" src="https://github.com/user-attachments/assets/e85e1ed1-1d93-415f-9a55-3994acdb77b4" />
 
 *Relay rate collapses after hop 1 (error bars: 95% CI).*
 
@@ -104,7 +104,8 @@ Why it doesn't cascade: exposed agents **act** on an instruction far more than t
 
 ### 4.3 What makes an agent give in
 
-![Odds ratios from logistic regression](docs/figures/fig3_logistic_odds.png)
+<img width="1088" height="290" alt="Screenshot 2026-11-09 185003" src="https://github.com/user-attachments/assets/f91d8ea2-9ee0-4ce0-b07c-d16fdfc95931" />
+
 
 *Figure 3. Logistic regression on exposed decisions (n = 899).*
 
@@ -115,14 +116,15 @@ Why it doesn't cascade: exposed agents **act** on an instruction far more than t
 | Each extra injected input (dose +1) | **4.94** [2.00, 12.19] |
 | Random / ring topology (vs chain) | n.s. (1.27 / 0.80) |
 
-![Probability the agent emails the attacker, by dose](docs/figures/fig4_dose_response.png)
+<img width="563" height="380" alt="Picture2" src="https://github.com/user-attachments/assets/65715b75-4f80-47b1-bbb3-b5745f71f904" />
+
 
 *Figure 4. No agent acted at dose 0 (0 of 2,341 decisions). Action rates were 5% (3B) and 17% (7B) at dose 1, and 29% / 43% at dose 2. Points at dose 2–3 are rare and shown for direction only.*
 
 ### 4.4 Taint tracking: perfect blocking, unusable cost
 
-![Runs with a data leak by model, topology and mode](docs/figures/fig5_leaks_by_mode.png)
 
+<img width="888" height="432" alt="Screenshot 2026-11-09 184503" src="https://github.com/user-attachments/assets/e84ee7bc-5cde-473b-aaaf-cd03e8ad87e7" />
 *Figure 5. Fraction of runs with a real leak. The green `external+taint` bar is zero everywhere.*
 
 Taint stopped **100%** of leaked emails that passed the gateway (18/18 for 3B, 53/53 for 7B), **but** it also tainted **100% of privileged agents in all 12 benign control runs** and halts legitimate work such as task B4 (a normal external email). It is a privilege rule that blocks too much. Replaying the traces under a content-based rule gives 0% benign overhead, but that rule is brittle against paraphrasing (see [`BUGS.md`](BUGS.md)).
